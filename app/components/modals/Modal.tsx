@@ -11,13 +11,13 @@ interface ModalProps {
   title?: string;
   body?: React.ReactElement;
   footer?: React.ReactElement;
-  actionLable: string;
+  actionLabel: string;
   disabled?: boolean;
-  secondaryAction: () => void;
+  secondaryAction?: () => void;
   secondaryActionLabel?: string;
 }
 const Modal: React.FC<ModalProps> = ({
-  actionLable,
+  actionLabel,
   onClose,
   onSubmit,
   body,
@@ -50,7 +50,7 @@ const Modal: React.FC<ModalProps> = ({
     }
 
     onSubmit();
-  }, [disabled, onsubmit]);
+  }, [disabled, onSubmit]);
 
   const handleSecondaryAction = useCallback(() => {
     if (disabled || !secondaryAction) {
@@ -65,10 +65,10 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
       <div
-        className="absolute overflow-x-hidden overflow-y-auto w-screen  h-screen inset-0 outline-none z-50 focus:outline-none bg-neutral-800/70
+        className="absolute overflow-x-hidden overflow-y-auto w-screen h-screen inset-0 outline-none z-50 focus:outline-none bg-neutral-800/70
       "
       >
-        <div className="relative text-center top-1/2 -translate-y-1/2 w-full md:w-4/6 lg:w-3/6 xl:w-2/5 my-6 mx-auto h-full lg:h-auto md:h-auto">
+        <div className="relative text-center top-1/2 -translate-y-1/2 w-full md:w-4/6 lg:w-3/6 xl:w-2/5 lg:my-6 mt-20 mx-auto h-fit lg:h-[90%] md:h-auto">
           {/* content */}
           <div
             className={`traslate duration-300 h-full ${
@@ -98,15 +98,15 @@ const Modal: React.FC<ModalProps> = ({
                 <div className="flex flex-row items-center gap-4 w-full">
                   {secondaryAction && secondaryActionLabel && (
                     <Button
-                      outline
                       disabled={disabled}
                       label={secondaryActionLabel}
                       onClick={handleSecondaryAction}
+                      outline
                     />
                   )}
                   <Button
                     disabled={disabled}
-                    label={actionLable}
+                    label={actionLabel}
                     onClick={handleSubmit}
                   />
                 </div>
