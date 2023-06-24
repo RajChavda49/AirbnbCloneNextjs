@@ -49,7 +49,7 @@ export const CategoryBox: React.FC<CategoryBoxProps> = ({
   return (
     <div
       onClick={handleClick}
-      className={`flex flex-col items-center justify-between gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer first-letter:
+      className={`flex flex-col items-center justify-between gap-2 p-3 border-b-2 hover:text-neutral-800 transition duration-100 cursor-pointer first-letter:
     ${
       selected
         ? "border-b-neutral-800 text-neutral-800"

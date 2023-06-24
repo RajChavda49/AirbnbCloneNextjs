@@ -10,6 +10,7 @@ const Logo = () => {
       alt="logo"
       className="hidden md:block cursor-pointer h-10 w-fit mr-2"
       src={require("../../../public/images/logo.png")}
+      onClick={()=>router.push("/")}
     />
   );
 };
